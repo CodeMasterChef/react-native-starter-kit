@@ -213,7 +213,7 @@ export default class FoodDetailScreen extends Component<Props> {
                                     borderRadius: defaultBorderRadius,
                                     marginBottom: 15,
                                 }}
-                                    onPress={() => { this.store.onPressSubmit() }}>
+                                    onPress={() => { this.store.onPressSubmit(this.props.navigation) }}>
                                     <Text style={{
                                         textAlign: 'center',
                                         padding: 10,

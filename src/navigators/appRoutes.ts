@@ -8,6 +8,7 @@ export const appRoutes = {
   giftStack: 'giftStack',
   homeScreen: 'homeScreen',
   foodDetailScreen: 'foodDetailScreen',
+  chatScreen: 'chatScreen',
   walletScreen: 'walletScreen',
   loginScreen: 'loginScreen',
   registerScreen: 'registerScreen',

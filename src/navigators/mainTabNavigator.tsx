@@ -6,19 +6,21 @@ import { createStackNavigator } from 'react-navigation-stack';
 import { createBottomTabNavigator } from 'react-navigation-tabs';
 import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import AccountScreen from '../screens/accountScreen/accountScreen';
-import I18n from 'react-native-i18n'; 
+import I18n from 'react-native-i18n';
 import { defaultFontFamily, bottomBardIconSize } from '../commons/constant';
 import ScannerButtonOnBottomBar from '../components/scannerButtonOnBottomBar/scannerButtonOnBottomBar';
 import { Image } from 'react-native';
 import { appStore } from '../appStore';
 import { FoodDetailStore } from '../screens/foodDetailScreen/foodDetailScreenStore';
 import FoodDetailScreen from '../screens/foodDetailScreen/foodDetailScreen';
+import ChatScreen from '../screens/chatScreen/chatScreen';
 
 const iconSize = bottomBardIconSize;
 
 const homeStack = createStackNavigator({
     [appRoutes.homeScreen]: HomeScreen,
     [appRoutes.foodDetailScreen]: FoodDetailScreen,
+    [appRoutes.chatScreen]: ChatScreen,
 });
 
 homeStack.navigationOptions = () => ({

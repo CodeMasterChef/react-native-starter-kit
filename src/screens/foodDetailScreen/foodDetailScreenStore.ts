@@ -2,6 +2,7 @@ import { observable } from 'mobx';
 import { appStore } from '../../appStore';
 import { NavigationScreenProp } from 'react-navigation';
 import { toastHelper } from '../../helpers/toastHelper';
+import { appRoutes } from '../../navigators/appRoutes';
 
 export class FoodDetailStore {
 
@@ -25,11 +26,14 @@ export class FoodDetailStore {
         this.text = txt;
     }
 
-    onPressSubmit = () => {
+    onPressSubmit = (navigation: NavigationScreenProp<any>) => {
         if (this.toast) {
             this.showModal = false;
             this.toast.show('Successfully sent request', 2500);
         }
+        setTimeout(() => {
+            navigation.navigate(appRoutes.chatScreen)
+        }, 800);
     }
 
     onPressRequest = () => {
