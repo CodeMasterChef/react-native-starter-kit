@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { View, StyleSheet, TouchableOpacity, Text, Image, Platform, ImageBackground, TextInput } from 'react-native';
+import { View, StyleSheet, TouchableOpacity, Text, Image, Platform, ImageBackground, TextInput, KeyboardAvoidingView } from 'react-native';
 import { observer } from 'mobx-react';
 import { NavigationScreenProp, SafeAreaView } from 'react-navigation';
 import { Colors } from '../../commons/colors';
@@ -140,86 +140,90 @@ export default class FoodDetailScreen extends Component<Props> {
                         }}>Reuest</Text>
                     </TouchableOpacity>
                 </View>
+
                 <Modal
+
                     isVisible={this.store.showModal}
                     deviceWidth={deviceWidth}
                     deviceHeight={deviceHeight}
                     style={[defaultStyles.modal, { backgroundColor: 'rbga(0,0,0,0,0.5)' }]}
                 >
+                    <KeyboardAvoidingView behavior={'padding'}>
+                        <View style={{
+                            backgroundColor: Colors.white, width: '100%', height: 300,
+                            padding: 15
+                        }}>
+                            <View style={{ flex: 1 }}>
+                                <View style={{ display: 'flex', alignItems: 'flex-end' }}>
+                                    <TouchableOpacity
+                                        onPress={() => { this.store.onPressCloseRequest() }}>
+                                        <FontAwesome5 size={25} name="times" style={styles.userStarIcon} />
+                                    </TouchableOpacity>
+                                </View>
+                                <View style={styles.flexCenter}>
+                                    <Text>
+                                        You want to request:
+                                </Text>
+                                    <Text style={{ marginLeft: 5, fontSize: 18, fontWeight: 'bold' }}>
+                                        {this.store.food?.title}
+                                    </Text>
+                                </View>
 
-                    <View style={{
-                        backgroundColor: Colors.white, width: '100%', height: 300,
-                        padding: 15
-                    }}>
-                        <View style={{ flex: 1 }}>
-                            <View style={{ display: 'flex', alignItems: 'flex-end' }}>
-                                <TouchableOpacity
-                                    onPress={() => { this.store.onPressCloseRequest() }}>
-                                    <FontAwesome5 size={25} name="times" style={styles.userStarIcon} />
+                                {
+                                    this.store.food?.price == 0 ?
+                                        <Text style={{}}></Text>
+                                        :
+                                        <View style={styles.flexCenter}>
+                                            <Text>Price: </Text>
+                                            <NumberFormat value={this.store.food?.price || 0}
+                                                displayType={'text'}
+                                                thousandSeparator={true}
+                                                renderText={(value) =>
+                                                    <Text style={{
+                                                        marginRight: 10,
+                                                        fontSize: 18,
+                                                        fontWeight: 'bold'
+                                                    }}>{value}đ</Text>
+                                                } />
+                                        </View>
+                                }
+
+
+                                <View style={{ marginTop: 10 }}>
+                                    <Text >Message:</Text>
+                                    <TextInput
+                                        style={{
+                                            borderWidth: 1, borderColor: Colors.primary
+                                            , borderRadius: defaultBorderRadius
+                                            , minHeight: 100, marginTop: 2,
+                                            padding: 10,
+                                        }}
+                                        multiline={true}
+                                        placeholder="Pick up at 3 - 5p.m "
+                                        numberOfLines={4}
+                                        onChangeText={(text) => this.store.setState({ text })}
+                                        value={this.store.text} />
+
+                                </View>
+                            </View>
+
+                            <View>
+                                <TouchableOpacity style={{
+                                    backgroundColor: Colors.toastWarning,
+                                    borderRadius: defaultBorderRadius,
+                                    marginBottom: 15,
+                                }}
+                                    onPress={() => { this.store.onPressSubmit() }}>
+                                    <Text style={{
+                                        textAlign: 'center',
+                                        padding: 10,
+                                        fontSize: 20,
+                                        color: Colors.white,
+                                    }}>Confirm</Text>
                                 </TouchableOpacity>
                             </View>
-                            <View style={styles.flexCenter}>
-                                <Text>
-                                    You want to request:
-                                </Text>
-                                <Text style={{ marginLeft: 5, fontSize: 18, fontWeight: 'bold' }}>
-                                    {this.store.food?.title}
-                                </Text>
-                            </View>
-
-                            {
-                                this.store.food?.price == 0 ?
-                                    <Text style={{}}></Text>
-                                    :
-                                    <View style={styles.flexCenter}>
-                                        <Text>Price: </Text>
-                                        <NumberFormat value={this.store.food?.price || 0}
-                                            displayType={'text'}
-                                            thousandSeparator={true}
-                                            renderText={(value) =>
-                                                <Text style={{
-                                                    marginRight: 10,
-                                                    fontSize: 18,
-                                                    fontWeight: 'bold'
-                                                }}>{value}đ</Text>
-                                            } />
-                                    </View>
-                            }
-
-
-                            <View style={{ marginTop: 10 }}>
-                                <Text >Message:</Text>
-                                <TextInput
-                                    style={{
-                                        borderWidth: 1, borderColor: Colors.primary
-                                        , borderRadius: defaultBorderRadius
-                                        , minHeight: 100, marginTop: 2,
-                                        padding: 10,
-                                    }}
-                                    multiline={true}
-                                    placeholder="Pick up at 3 - 5p.m "
-                                    numberOfLines={4}
-                                    onChangeText={(text) => this.store.setState({ text })}
-                                    value={this.store.text} />
-
-                            </View>
                         </View>
-
-                        <View>
-                            <TouchableOpacity style={{
-                                backgroundColor: Colors.toastWarning,
-                                borderRadius: defaultBorderRadius
-                            }}
-                                onPress={() => { this.store.onPressSubmit() }}>
-                                <Text style={{
-                                    textAlign: 'center',
-                                    padding: 10,
-                                    fontSize: 20,
-                                    color: Colors.white,
-                                }}>Confirm</Text>
-                            </TouchableOpacity>
-                        </View>
-                    </View>
+                    </KeyboardAvoidingView>
                 </Modal>
 
                 <Toast ref={(ref: Toast) => { this.store.toast = ref }}
@@ -228,7 +232,6 @@ export default class FoodDetailScreen extends Component<Props> {
                     style={defaultStyles.successCenterToast}
                     textStyle={styles.toastText}
                 />
-
             </View >
 
         )

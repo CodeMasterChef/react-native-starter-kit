@@ -22,7 +22,7 @@ export default class HomeScreen extends Component<Props> {
     store!: HomeScreenStore;
 
     static navigationOptions = ({ }) => ({
-        title: 'Loyal One',
+        title: 'Food',
         header: null,
     });
 
