@@ -38,7 +38,7 @@ export default class HomeScreen extends Component<Props> {
         const arr: any[] = [];
         this.store.foods.forEach((item) => {
             arr.push(
-                <FoodItem food={item} />
+                <FoodItem food={item}  navigation={this.props.navigation}/>
             );
         });
         return (
@@ -63,9 +63,11 @@ export default class HomeScreen extends Component<Props> {
                     </View>
                 </View>
                 <ScrollView style={styles.scrollView} >
-                    {
-                        arr
-                    }
+                    <View style={styles.scrollViewContent}>
+                        {
+                            arr
+                        }
+                    </View>
                 </ScrollView>
             </View>
 
@@ -125,7 +127,7 @@ const styles = StyleSheet.create({
         top: - (headerImageHeight / 2 + headerContentHeight / 2) + (Platform.OS === 'ios' ? (headerContentHeight / 2 + rabbitHearHeight) : 0),
     },
     scrollViewContent: {
-        marginBottom: 150,
+        marginBottom: 200,
     },
     scanButton: {
         paddingHorizontal: defaultMargin,

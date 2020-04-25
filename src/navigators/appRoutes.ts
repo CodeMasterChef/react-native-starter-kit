@@ -7,6 +7,7 @@ export const appRoutes = {
   exchangePointStack: 'exchangePointStack',
   giftStack: 'giftStack',
   homeScreen: 'homeScreen',
+  foodDetailScreen: 'foodDetailScreen',
   walletScreen: 'walletScreen',
   loginScreen: 'loginScreen',
   registerScreen: 'registerScreen',

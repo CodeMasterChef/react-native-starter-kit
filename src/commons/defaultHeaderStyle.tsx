@@ -25,13 +25,13 @@ const styles = StyleSheet.create({
     backgroundColor: Colors.third,
   },
   header: {
-    backgroundColor: 'transparent',
+    backgroundColor: Colors.primary,
   },
 })
 
 export const DefaultNavigationOptions = {
   headerStyle: {
-    backgroundColor: 'transparent',
+    backgroundColor: Colors.primary,
   },
   headerTintColor: Colors.white,
   headerTitleStyle: {

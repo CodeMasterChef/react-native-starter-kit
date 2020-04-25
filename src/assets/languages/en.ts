@@ -251,5 +251,5 @@ export const en = {
   all_results: 'All Results',
   partners: 'Partners',
   search: 'Search',
-  add: 'Add Product'
+  add: 'Add'
 }

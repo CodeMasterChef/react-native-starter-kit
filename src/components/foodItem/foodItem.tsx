@@ -11,9 +11,11 @@ import Modal from 'react-native-modal';
 import { Colors } from '../../commons/colors';
 import { FoodItemStore } from './foodItemStore';
 import { resetGlobalState } from 'mobx/lib/internal';
+import { NavigationScreenProp } from 'react-navigation';
 
 interface Props {
     food: any;
+    navigation: NavigationScreenProp<any>;
     store?: FoodItemStore,
     hideIcon?: boolean,
     textAlign?: 'right' | 'left' | 'center',
@@ -35,7 +37,7 @@ export default class FoodItem extends Component<Props> {
         return (
             <View style={styles.foodContainer}>
                 <TouchableOpacity
-                    onPress={this.store.onPressItem}
+                    onPress={() => { this.store.onPressItem(this.props.navigation) }}
                 >
                     <View style={styles.padding}>
                         <Text numberOfLines={1} ellipsizeMode="tail"
@@ -67,12 +69,18 @@ export default class FoodItem extends Component<Props> {
                         </View>
                         <View style={styles.flexCenter}>
                             <SimpleLineIcons style={styles.moneyIcon} size={16} name="tag" />
-                            <NumberFormat value={this.store.food.price || 0}
-                                displayType={'text'}
-                                thousandSeparator={true}
-                                renderText={(value) =>
-                                    <Text style={styles.money}>{value}đ</Text>
-                                } />
+                            {
+                                this.store.food.price == 0 ?
+                                    <Text style={{}}>Free</Text>
+                                    :
+                                    <NumberFormat value={this.store.food.price || 0}
+                                        displayType={'text'}
+                                        thousandSeparator={true}
+                                        renderText={(value) =>
+                                            <Text style={styles.money}>{value}đ</Text>
+                                        } />
+                            }
+
                         </View>
 
                     </View>

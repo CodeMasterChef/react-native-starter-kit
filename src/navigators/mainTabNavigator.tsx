@@ -11,11 +11,14 @@ import { defaultFontFamily, bottomBardIconSize } from '../commons/constant';
 import ScannerButtonOnBottomBar from '../components/scannerButtonOnBottomBar/scannerButtonOnBottomBar';
 import { Image } from 'react-native';
 import { appStore } from '../appStore';
+import { FoodDetailStore } from '../screens/foodDetailScreen/foodDetailScreenStore';
+import FoodDetailScreen from '../screens/foodDetailScreen/foodDetailScreen';
 
 const iconSize = bottomBardIconSize;
 
 const homeStack = createStackNavigator({
     [appRoutes.homeScreen]: HomeScreen,
+    [appRoutes.foodDetailScreen]: FoodDetailScreen,
 });
 
 homeStack.navigationOptions = () => ({
@@ -28,7 +31,7 @@ homeStack.navigationOptions = () => ({
         }
     },
     tabBarIcon: ({ focused }: { focused: boolean }) => (
-        <MaterialCommunityIcons name='home-outline' size={iconSize}
+        <MaterialCommunityIcons name='food-apple-outline' size={iconSize}
             color={focused ? Colors.secondary : Colors.gray} />
     ),
 });
