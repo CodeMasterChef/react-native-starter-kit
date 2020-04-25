@@ -250,4 +250,6 @@ export const en = {
   copied_success: 'Copied successfully',
   all_results: 'All Results',
   partners: 'Partners',
+  search: 'Search',
+  add: 'Add Product'
 }

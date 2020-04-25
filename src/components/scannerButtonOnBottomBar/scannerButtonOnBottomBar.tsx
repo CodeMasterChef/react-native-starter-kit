@@ -3,7 +3,7 @@ import { StyleSheet, TouchableOpacity } from 'react-native';
 import { observer } from 'mobx-react';
 import { bottomBardIconSize } from '../../commons/constant';
 import { Colors } from '../../commons/colors';
-import Ionicons from 'react-native-vector-icons/Ionicons';
+import MaterialCommunityIcons from 'react-native-vector-icons/MaterialCommunityIcons';
 import { NavigationScreenProp } from 'react-navigation';
 import { appStore } from '../../appStore';
 
@@ -29,7 +29,7 @@ export default class ScannerButtonOnBottomBar extends Component<Props> {
             <TouchableOpacity
                 onPress={this.onPressButton}
                 style={styles.button}>
-                <Ionicons name='md-qr-scanner' size={bottomBardIconSize}
+                <MaterialCommunityIcons name='plus-circle-outline' size={bottomBardIconSize}
                     color={Colors.gray} />
             </TouchableOpacity>
         );

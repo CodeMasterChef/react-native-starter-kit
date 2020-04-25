@@ -31,7 +31,7 @@ import DeepLinkSelect from './components/deepLinkSelect/deepLinkSelect';
 import { localAppStorageHelper } from './helpers/localAppStorageHelper';
 
 I18n.fallbacks = true;
-I18n.locale = 'vi-VN';
+I18n.locale = 'en';
 I18n.translations = {
   en: en,
   vi: vi,

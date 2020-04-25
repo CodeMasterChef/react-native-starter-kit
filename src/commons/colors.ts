@@ -8,6 +8,7 @@ export const Colors = {
     highlight: '#FD7F35',
     lightGray: '#F5F6FA',
     danger: '#F8FB00',
+    yellow: 'yellow',
     toastSuccess: '#71D48F',
     toastDanger: '#dc3545',
     toastWarning: '#FFC11E',

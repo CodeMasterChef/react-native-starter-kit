@@ -9,7 +9,7 @@ export default createAppContainer(
         [appRoutes.authNavigator]: AuthNavigator,
     },
         {
-            initialRouteName: appRoutes.authNavigator,
+            initialRouteName: appRoutes.mainTabNavigator,
         }
     )
 

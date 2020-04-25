@@ -19,7 +19,7 @@ const homeStack = createStackNavigator({
 });
 
 homeStack.navigationOptions = () => ({
-    tabBarLabel: 'Loyal One',
+    tabBarLabel: 'Food',
     tabBarOptions: {
         showLabel: true,
         activeTintColor: Colors.primary,
@@ -62,7 +62,7 @@ export default createBottomTabNavigator({
     scannerButton: {
         screen: () => null,
         navigationOptions: ({ navigation }) => ({
-            tabBarLabel: I18n.t('scan'),
+            tabBarLabel: I18n.t('add'),
             tabBarIcon: (<ScannerButtonOnBottomBar navigation={navigation} />),
             tabBarOnPress: () => {
                 appStore.isVisibleScannerModal = true;

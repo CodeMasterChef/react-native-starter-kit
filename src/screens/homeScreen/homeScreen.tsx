@@ -12,6 +12,7 @@ import I18n from 'react-native-i18n';
 import { HomeScreenStore } from './homeScreenStore';
 import { stores } from '../../stores';
 import * as mobx from 'mobx';
+import FoodItem from '../../components/foodItem/foodItem';
 interface Props {
     navigation: NavigationScreenProp<any>
 }
@@ -34,13 +35,19 @@ export default class HomeScreen extends Component<Props> {
     };
 
     render() {
+        const arr: any[] = [];
+        this.store.foods.forEach((item) => {
+            arr.push(
+                <FoodItem food={item} />
+            );
+        });
         return (
             <View style={styles.screen}>
                 <View style={styles.header}>
                     <SafeAreaView>
                         <View style={styles.headerContent}>
                             <TouchableOpacity style={styles.scanButton} onPress={this.store.onPressScanButton}>
-                                <Ionicons name='md-qr-scanner' size={32} color={Colors.white} />
+                                <MaterialCommunityIcons name='plus-circle-outline' size={32} color={Colors.white} />
                             </TouchableOpacity>
                             <TouchableOpacity style={styles.searchButton} onPress={() => this.store.onPressSearchButton(this.props.navigation)}>
                                 <Ionicons name='ios-search' size={24} color={Colors.lightGray} />
@@ -52,12 +59,13 @@ export default class HomeScreen extends Component<Props> {
                         </View>
                     </SafeAreaView>
                     <View style={styles.round}>
+                        {/* <Text style={styles.adText}>Become a zero food waste</Text> */}
                     </View>
                 </View>
-                <ScrollView style={styles.scrollView}
-                >
-                     
-
+                <ScrollView style={styles.scrollView} >
+                    {
+                        arr
+                    }
                 </ScrollView>
             </View>
 
@@ -77,6 +85,19 @@ const categoryButtonWidth = 55;
 const rabbitHearHeight = 24;
 
 const styles = StyleSheet.create({
+    adText: {
+        color: Colors.white,
+        fontSize: 22,
+    },
+    round: {
+        height: 100,
+        backgroundColor: Colors.primary,
+        borderBottomLeftRadius: 20,
+        borderBottomRightRadius: 20,
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+    },
     screen: {
         flex: 1,
         backgroundColor: Colors.lightGray,
@@ -96,14 +117,10 @@ const styles = StyleSheet.create({
         marginVertical: 8,
         height: headerContentHeight,
     },
-    round: {
-        height: 100,
-        backgroundColor: Colors.primary,
-        borderBottomLeftRadius: 20,
-        borderBottomRightRadius: 20,
-    },
+
     scrollView: {
-        marginTop: headerImageHeight,
+        padding: 10,
+        marginTop: headerImageHeight + 10,
         minHeight: deviceHeight,
         top: - (headerImageHeight / 2 + headerContentHeight / 2) + (Platform.OS === 'ios' ? (headerContentHeight / 2 + rabbitHearHeight) : 0),
     },
