@@ -1,0 +1,18 @@
+export const Colors = {
+    primary: '#2e045b',
+    secondary: '#59499e',
+    third: '#210044',
+    white: '#fff',
+    black: '#000',
+    gray: '#585858',
+    highlight: '#FD7F35',
+    lightGray: '#F5F6FA',
+    danger: '#F8FB00',
+    toastSuccess: '#71D48F',
+    toastDanger: '#dc3545',
+    toastWarning: '#FFC11E',
+    blue: '#4A60DA',
+    transactionSuccess: '#5CBA47',
+    transactionPending: '#FD7F35',
+    transactionFail: '#585858',
+}
