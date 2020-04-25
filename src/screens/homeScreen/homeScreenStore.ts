@@ -1,4 +1,3 @@
-import { loyaltyApi } from './../../api/loyaltyApi';
 import { Voucher } from './../../@model/voucher';
 import { appRoutes } from './../../navigators/appRoutes';
 import { StatusCodeEnum } from './../../enum/statusCodeEnum';
@@ -20,16 +19,7 @@ export class HomeScreenStore {
     }
 
     initData = async () => {
-        // get all categories
-        const categoriesResponse = await utilityApi.getAllCategories();
-        if (categoriesResponse.status_code === StatusCodeEnum.success && categoriesResponse.data) {
-            this.categories = categoriesResponse.data.items;
-        }
-        // get all vouchers
-        const voucherResponse = await loyaltyApi.getBrandVouchers();
-        if (voucherResponse.status_code === StatusCodeEnum.success && voucherResponse.data) {
-            this.vouchers = voucherResponse.data.items;
-        }
+
     }
 
     onPressScanButton = () => {

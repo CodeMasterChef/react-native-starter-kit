@@ -24,8 +24,6 @@ import { NavigationScreenProp } from 'react-navigation';
 import { appRoutes, deepLinkRoutes } from './navigators/appRoutes';
 import { pointApi } from './api/pointApi';
 import { StatusCodeEnum } from './enum/statusCodeEnum';
-import { RequestEarnPointScreenStore } from './screens/requestEarnPointScreen/requestEarnPointScreenStore';
-import { requestEarnPointScreenParams } from './screens/requestEarnPointScreen/requestEarnPointScreen';
 import { stores } from './stores';
 import Modal from 'react-native-modal';
 import ScannerScreen from './screens/scannerScreen/scannerScreen';
@@ -103,16 +101,16 @@ export default class App extends Component<Props> {
       }
       else if (routeName === deepLinkRoutes.point) {
         if (params.id) {
-          const brandId = params.id;
-          const response = await pointApi.getBrandDetails(brandId);
-          if (response.status_code === StatusCodeEnum.success) {
-            const brand = response.data;
-            const store = new RequestEarnPointScreenStore(brand);
-            this.navigate(appRoutes.requestEarnPointScreen, { [requestEarnPointScreenParams.store]: store });
-            // With react-navigation, we can not navigate when the current route is requestEarnPointScreen, 
-            // so that we need to update data on the store
-            stores.requestEarnPointScreenStore?.setBrand(brand);
-          }
+          // const brandId = params.id;
+          // const response = await pointApi.getBrandDetails(brandId);
+          // if (response.status_code === StatusCodeEnum.success) {
+          //   const brand = response.data;
+          //   // const store = new RequestEarnPointScreenStore(brand);
+          //   // this.navigate(appRoutes.requestEarnPointScreen, { [requestEarnPointScreenParams.store]: store });
+          //   // With react-navigation, we can not navigate when the current route is requestEarnPointScreen, 
+          //   // so that we need to update data on the store
+          //   stores.requestEarnPointScreenStore?.setBrand(brand);
+          // }
         }
       }
     } else if (appRoutes.hasOwnProperty(routeName)) {
@@ -153,10 +151,7 @@ export default class App extends Component<Props> {
                 !(this.state.isConnectedInternet) && <NetworkErrorPanel />
               }
               {
-                !appStore.isReadIntro ?
-                  <IntroScreen />
-                  :
-                  <AppNavigator />
+                <AppNavigator />
               }
             </View>
         }

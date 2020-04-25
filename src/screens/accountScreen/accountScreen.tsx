@@ -97,7 +97,7 @@ export default class AccountScreen extends Component<Props> {
                             {appStore.envName} v.{appStore.version}
                         </Text>
                         <Text style={styles.provider} >
-                            {I18n.t('development_by_loya_world')}
+                            {I18n.t('development_by_kids_team')}
                         </Text>
                     </View>
                 </View>

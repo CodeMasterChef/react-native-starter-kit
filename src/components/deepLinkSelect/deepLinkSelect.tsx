@@ -35,7 +35,7 @@ export default class DeepLinkSelect extends Component<Props> {
                         </TouchableOpacity>
                     </View>
 
-                    <TouchableOpacity
+                    {/* <TouchableOpacity
                         style={[styles.option, this.store.isNotMember ? defaultStyles.buttonDisabled : defaultStyles.buttonActivate]}
                         disabled={this.store.isNotMember}
                         onPress={this.store.onPressEarnPointRequestOption}
@@ -69,7 +69,7 @@ export default class DeepLinkSelect extends Component<Props> {
                                 <Text style={styles.alert}>{I18n.t('you_are_member_now')}</Text>
                             }
                         </View>
-                    </TouchableOpacity>
+                    </TouchableOpacity> */}
                 </View>
             </Modal>
 

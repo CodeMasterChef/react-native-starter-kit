@@ -26,10 +26,10 @@ export class LoginScreenStore {
     showingCountryButton = false;
 
     @observable
-    phone = '';
+    phone = '356957240';
 
     @observable
-    password = '';
+    password = '123456';
 
     @observable
     isProcessing = false;
@@ -74,7 +74,7 @@ export class LoginScreenStore {
 
         const phoneWithCountryCode = `+${this.countryCalling}${validPhone}`;
 
-        if (this.validatePhoneNumber(phoneWithCountryCode)) {
+        // if (this.validatePhoneNumber(phoneWithCountryCode)) {
             try {
                 const requestBody: LoginRequestBody = {
                     username: phoneWithCountryCode,
@@ -82,26 +82,26 @@ export class LoginScreenStore {
                     socialMethod: SocialMethodEnum.phone,
                     type: 'USER',
                 }
-                const responseBody = await authApi.login(requestBody);
-                if (responseBody.status_code === StatusCodeEnum.success) {
-                    const { account, authorization } = responseBody.data;
-                    await localAppStorageHelper.setAccessToken(authorization);
-                    await localAppStorageHelper.setAccount(account);
-                    if (this.navigation) {
-                        this.navigation.navigate(appRoutes.mainTabNavigator);
-                        // open deep link option modal when the app is open by deep link
-                        const savedDeepLinkBrandId = await localAppStorageHelper.getSavedDeepLinkBrandId();
-                        if (savedDeepLinkBrandId) {
-                            await appStore.deepLinkSelectStore.setBrandId(savedDeepLinkBrandId);
-                            appStore.deepLinkSelectStore.isVisible = true;
-                            await localAppStorageHelper.setSavedDeepLinkBrandId(null);
-                        }
-                    }
-                } else if (responseBody.status_code === StatusCodeEnum.notFound || responseBody.status_code === StatusCodeEnum.userInvalid) {
-                    toastHelper.error(I18n.t('phone_or_password_is_incorrect'), this.errorToast);
-                } else {
-                    toastHelper.error(I18n.t('error_undefined'), this.errorToast);
+                // const responseBody = await authApi.login(requestBody);
+                // if (responseBody.status_code === StatusCodeEnum.success) {
+                //     const { account, authorization } = responseBody.data;
+                //     await localAppStorageHelper.setAccessToken(authorization);
+                //     await localAppStorageHelper.setAccount(account);
+                if (this.navigation) {
+                    this.navigation.navigate(appRoutes.mainTabNavigator);
+                    //         // open deep link option modal when the app is open by deep link
+                    //         const savedDeepLinkBrandId = await localAppStorageHelper.getSavedDeepLinkBrandId();
+                    //         if (savedDeepLinkBrandId) {
+                    //             await appStore.deepLinkSelectStore.setBrandId(savedDeepLinkBrandId);
+                    //             appStore.deepLinkSelectStore.isVisible = true;
+                    //             await localAppStorageHelper.setSavedDeepLinkBrandId(null);
+                    //         }
                 }
+                // } else if (responseBody.status_code === StatusCodeEnum.notFound || responseBody.status_code === StatusCodeEnum.userInvalid) {
+                //     toastHelper.error(I18n.t('phone_or_password_is_incorrect'), this.errorToast);
+                // } else {
+                //     toastHelper.error(I18n.t('error_undefined'), this.errorToast);
+                // }
                 this.isProcessing = false;
             } catch (err) {
                 toastHelper.error(err.message, this.errorToast);
@@ -109,11 +109,11 @@ export class LoginScreenStore {
                 this.isProcessing = false;
                 return false;
             }
-        } else {
-            toastHelper.error(I18n.t('invalid_phone'), this.errorToast);
-            this.isProcessing = false;
-            return false;
-        }
+        // } else {
+        //     toastHelper.error(I18n.t('invalid_phone'), this.errorToast);
+        //     this.isProcessing = false;
+        //     return false;
+        // }
         this.isProcessing = false;
     }
 

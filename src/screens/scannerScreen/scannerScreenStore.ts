@@ -2,9 +2,7 @@ import { appStore } from './../../appStore';
 import { deepLinkRoutes, appRoutes } from '../../navigators/appRoutes';
 import { pointApi } from '../../api/pointApi';
 import { StatusCodeEnum } from '../../enum/statusCodeEnum';
-import { RequestEarnPointScreenStore } from '../requestEarnPointScreen/requestEarnPointScreenStore';
 import { NavigationScreenProp } from 'react-navigation';
-import { requestEarnPointScreenParams } from '../requestEarnPointScreen/requestEarnPointScreen';
 import { stores } from '../../stores';
 import { toastHelper } from '../../helpers/toastHelper';
 import I18n from 'react-native-i18n';
@@ -89,22 +87,22 @@ export class ScannerScreenStore {
 
     private handleForEarnPointRequest = async (brandId: string) => {
         this.isLoading = true;
-        const response = await pointApi.getBrandDetails(brandId);
-        if (response.status_code === StatusCodeEnum.success) {
-            const brand = response.data;
+        // const response = await pointApi.getBrandDetails(brandId);
+        // if (response.status_code === StatusCodeEnum.success) {
+        //     const brand = response.data;
 
-            const store = new RequestEarnPointScreenStore(brand);
-            appStore.isVisibleScannerModal = false;
-            stores.navigation.navigate(appRoutes.requestEarnPointScreen, {
-                [requestEarnPointScreenParams.store]: store,
-            });
-            // With react-navigation, we can not navigate when the current route is requestEarnPointScreen, 
-            // so that we need to update data on the store
-            stores.requestEarnPointScreenStore?.setBrand(brand);
-        } else {
-            toastHelper.error(I18n.t('can_not_found_brand'));
-        }
-        this.isLoading = false;
+        //     // const store = new RequestEarnPointScreenStore(brand);
+        //     // appStore.isVisibleScannerModal = false;
+        //     // stores.navigation.navigate(appRoutes.requestEarnPointScreen, {
+        //     //     [requestEarnPointScreenParams.store]: store,
+        //     // });
+        //     // With react-navigation, we can not navigate when the current route is requestEarnPointScreen, 
+        //     // so that we need to update data on the store
+        //     stores.requestEarnPointScreenStore?.setBrand(brand);
+        // } else {
+        //     toastHelper.error(I18n.t('can_not_found_brand'));
+        // }
+        // this.isLoading = false;
     }
 
     handleExceptionData = (url: string) => {

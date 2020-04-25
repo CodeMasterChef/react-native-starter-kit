@@ -11,7 +11,6 @@ import { defaultStyles } from '../../commons/defaultStyles';
 import I18n from 'react-native-i18n';
 import { HomeScreenStore } from './homeScreenStore';
 import { stores } from '../../stores';
-import VoucherCard from '../../components/voucherCard/voucherCard';
 import * as mobx from 'mobx';
 interface Props {
     navigation: NavigationScreenProp<any>
@@ -57,103 +56,7 @@ export default class HomeScreen extends Component<Props> {
                 </View>
                 <ScrollView style={styles.scrollView}
                 >
-                    <View style={styles.scrollViewContent}>
-                        <View style={styles.actionButtonArea}>
-                            <TouchableOpacity style={styles.actionButton}
-                                onPress={() => this.store.onPressVoucherButton(this.props.navigation)}
-                            >
-                                <View style={styles.actionButtonImageContainer}>
-                                    <Image source={require('../../assets/images/coupon.png')} resizeMode='contain' style={styles.actionButtonImage} />
-                                </View>
-                                <Text style={styles.actionButtonText}>{I18n.t('promotions')}</Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity style={styles.actionButton}
-                                onPress={() => this.store.onPressEarnPointButton(this.props.navigation)}
-                            >
-                                <View style={styles.actionButtonImageContainer}>
-                                    <Image source={require('../../assets/images/earn_point.png')} resizeMode='contain' style={styles.actionButtonImage} />
-                                </View>
-                                <Text style={styles.actionButtonText} >{I18n.t('earn_points')}</Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity style={styles.actionButton}
-                                onPress={() => this.store.onPressExchangePointButton(this.props.navigation)}
-                            >
-                                <View style={styles.actionButtonImageContainer}>
-                                    <Image source={require('../../assets/images/exchange_button.png')} resizeMode='contain' style={styles.actionButtonImage} />
-                                </View>
-                                <Text style={styles.actionButtonText}>{I18n.t('exchange_points')}</Text>
-                            </TouchableOpacity>
-                            <TouchableOpacity
-                                style={styles.actionButton}
-                                onPress={() => this.store.onPressWalletButton(this.props.navigation)}
-                            >
-                                <View style={styles.actionButtonImageContainer}>
-                                    <Image source={require('../../assets/images/wallet_button.png')} resizeMode='contain' style={styles.actionButtonImage} />
-                                </View>
-                                <Text style={styles.actionButtonText}>{I18n.t('point_wallet')}</Text>
-                            </TouchableOpacity>
-
-                        </View>
-                        <View style={styles.body}>
-                            {
-                                this.store?.categories &&
-                                <View style={styles.categoryArea}>
-                                    <ScrollView
-                                        horizontal={true}
-                                        showsHorizontalScrollIndicator={false}
-                                    >
-                                        {
-                                            this.store?.categories?.map(category => {
-                                                const avatar = category.urlAvatar ? { uri: category.urlAvatar } : require('../../assets/images/home_inactive.png')
-                                                return (
-                                                    <TouchableOpacity style={styles.categoryButton}>
-                                                        <View style={styles.categoryImageContainer}>
-                                                            <Image source={avatar} resizeMode='contain' style={styles.categoryImage} />
-                                                        </View>
-                                                        <Text style={styles.categoryButtonText} numberOfLines={2} ellipsizeMode='tail'>{category.name}</Text>
-                                                    </TouchableOpacity>
-                                                )
-                                            })
-                                        }
-                                    </ScrollView>
-                                </View>
-                            }
-                            {
-                                this.store?.vouchers &&
-                                <View style={styles.voucherArea}>
-                                    <View style={defaultStyles.row}>
-                                        <Text style={styles.title}>{I18n.t('promotions')}</Text>
-                                        <View style={[styles.viewAllContainer]}>
-                                            <TouchableOpacity onPress={() => this.store.onPressAllVoucherButton(this.props.navigation)}>
-                                                <Text style={styles.viewAllText}>{I18n.t('all')}</Text>
-                                            </TouchableOpacity>
-                                        </View>
-                                    </View>
-
-                                    <ScrollView
-                                        horizontal={true}
-                                        showsHorizontalScrollIndicator={false}
-                                    >
-                                        {
-                                            this.store.vouchers.map(voucher => {
-                                                const v = mobx.toJS(voucher);
-                                                return (
-                                                    <View style={styles.voucherContainer}>
-                                                        <VoucherCard navigation={this.props.navigation} voucher={v} />
-                                                    </View>
-
-
-                                                )
-                                            })
-                                        }
-                                    </ScrollView>
-                                </View>
-                            }
-
-                        </View>
-                    </View>
-
-
+                     
 
                 </ScrollView>
             </View>

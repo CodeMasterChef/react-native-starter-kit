@@ -1,5 +1,5 @@
 
-const appVersion = '0.0.8';
+const appVersion = '0.0.1';
 const buildVersion = 1;
 
 const config = {
@@ -7,26 +7,26 @@ const config = {
         name: 'development',
         appVersion: appVersion,
         buildVersion: buildVersion,
-        apiDomain: 'http://development.loyaworld.com:4000',
+        apiDomain: ' ',
     },
     staging: {
         name: 'staging',
         appVersion: appVersion,
         buildVersion: buildVersion,
-        apiDomain: 'https://staging.loyaworld.com:4001',
+        apiDomain: ' ',
 
     },
     production: {
         name: 'production',
         appVersion: appVersion,
         buildVersion: buildVersion,
-        apiDomain: 'https://api.loya.one:4001',
+        apiDomain: '',
     }
 }
 
 class AppConfig {
 
-    config = config.staging;
+    config = config.development;
 
     constructor() {
     }

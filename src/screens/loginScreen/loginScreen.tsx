@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Text, View, StyleSheet, ImageBackground, Image, TextInput, TouchableOpacity } from 'react-native';
+import { Text, View, StyleSheet, ImageBackground, Image, TextInput, TouchableOpacity, SafeAreaView } from 'react-native';
 import { defaultStyles } from '../../commons/defaultStyles';
 import { Colors } from '../../commons/colors';
 import LinearGradient from 'react-native-linear-gradient';
@@ -49,11 +49,11 @@ export default class LoginScreen extends Component<Props> {
     render() {
         const invalid = !this.store.countryCalling || !this.store.phone || !this.store.password;
         return (
-            <View style={styles.screen}>
+            <SafeAreaView style={styles.screen}>
                 <KeyboardAwareScrollView style={defaultStyles.container}>
 
 
-                    <ImageBackground
+                    {/* <ImageBackground
                         style={styles.headerImage}
                         source={require('../../assets/images/header.png')}
                     >
@@ -64,9 +64,19 @@ export default class LoginScreen extends Component<Props> {
                             />
                             <Text style={styles.logoText}>LOYAL ONE</Text>
                         </View>
-                    </ImageBackground>
+                    </ImageBackground> */}
+
                     <LinearGradient
-                        colors={['#210044', '#3A0069', '#3A0069']} style={styles.radianArea}>
+                        colors={['#74945C', '#74945C', '#74945C']} style={styles.radianArea}>
+
+                        {/* <View  >
+                            <Image
+                                style={styles.logo}
+                                resizeMode="contain"
+                                source={require('../../assets/images/1024.png')}
+                            />
+                            <Text style={styles.logoText}>LOYAL ONE</Text>
+                        </View> */}
 
                         <Text style={styles.screenName}>{I18n.t('login')}</Text>
                         <View style={styles.textInputArea}>
@@ -116,15 +126,7 @@ export default class LoginScreen extends Component<Props> {
                                 </View>
                             </View>
                         </View>
-                        <View style={styles.forgotPasswordContainer}>
-                            <TouchableOpacity
-                                onPress={this.store.onPressForgotButton}
-                            >
-                                <Text style={[styles.forgotPassword, defaultStyles.text]} >
-                                    {I18n.t('forgot_password')}?
-                            </Text>
-                            </TouchableOpacity>
-                        </View>
+                
                         <View style={styles.textInputArea}>
                             <View style={(invalid || this.store.isProcessing) ? defaultStyles.buttonDisabled : defaultStyles.buttonActivate} >
                                 <TouchableOpacity style={styles.loginButton}
@@ -145,7 +147,7 @@ export default class LoginScreen extends Component<Props> {
                             <TouchableOpacity
                                 onPress={this.store.onPressRegisterButton}
                             >
-                                <Text style={[styles.forgotPassword, defaultStyles.text]} >
+                                <Text style={[styles.forgotPassword, defaultStyles.text, {color: Colors.white}]} >
                                     {I18n.t('register')}
                                 </Text>
                             </TouchableOpacity>
@@ -158,7 +160,7 @@ export default class LoginScreen extends Component<Props> {
                                 </Text>
                             </TouchableOpacity>
                             <Text style={styles.provider} >
-                                {I18n.t('development_by_loya_world')}
+                                {I18n.t('development_by_kids_team')}
                             </Text>
                         </View>
                     </LinearGradient>
@@ -174,7 +176,7 @@ export default class LoginScreen extends Component<Props> {
                     style={defaultStyles.errorCenterToast}
                     textStyle={defaultStyles.textToast}
                 />
-            </View>
+            </SafeAreaView>
         )
     }
 }
@@ -192,10 +194,10 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'center',
         alignItems: 'center',
-        marginVertical: 30,
     },
     logo: {
         margin: 20,
+        width: 20,
     },
     logoText: {
         ...defaultStyles.text,

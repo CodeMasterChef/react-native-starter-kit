@@ -1,19 +1,13 @@
 import { Brand } from './brand';
 
-export enum VoucherType {
-    CRAWLER = 'CRAWLER',
-    LOYA = 'LOYA',
-}
-
-export interface Voucher { 
+export interface Voucher {
     id: string;
     brandId: string;
     brand?: Brand;
     title: string;
     content: string;
     url?: string;
-    image?:  string;
-    type: VoucherType;
+    image?: string;
     memberTypeIds?: string;
     limitAmount?: number;
     minAmount?: number;

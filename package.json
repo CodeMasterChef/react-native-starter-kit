@@ -7,7 +7,7 @@
     "android": "react-native run-android",
     "ios": "react-native run-ios",
     "iphone7": "react-native run-ios --simulator='iPhone 7'",
-    "iphone":"react-native run-ios --device 'Lam iPhone'",
+    "iphone":"react-native run-ios --device 'Thanh's iPhone'",
     "build:android": "cd android && ./gradlew assembleRelease",
     "open:android": "${ANDROID_HOME}/emulator/emulator -avd Pixel_2_API_29",
     "test": "jest",

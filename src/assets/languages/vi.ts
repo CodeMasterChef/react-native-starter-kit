@@ -151,7 +151,7 @@ export const vi = {
     skip: 'Bỏ qua',
     reason: 'Lý do',
     vnpay_not_support_now: 'Hiện tại VNPAY không thể thực hiện giao dịch của bạn',
-    development_by_loya_world: 'Cung cấp bởi Loya World',
+    development_by_kids_team: 'Cung cấp bởi Kids Team',
     you_are_not_member: 'Bạn chưa phải là thành viên? ',
     register_now: 'Đăng ký ngay',
     link_wallet: 'Liên kết ví',

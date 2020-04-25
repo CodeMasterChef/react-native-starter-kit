@@ -7,16 +7,11 @@ import { deviceWidth, defaultFontFamily } from './constant';
 export const HeaderNavigation = (props: any) => {
   return (
     <View>
-      <ImageBackground
-        style={styles.imageBackground}
-        resizeMode='cover'
-        source={require('../assets/images/header.png')}
-      >
-        <View style={styles.overlay}>
-          <Header {...props} style={styles.header} />
-        </View>
 
-      </ImageBackground>
+      <View style={styles.overlay}>
+        <Header {...props} style={styles.header} />
+      </View>
+
 
     </View>
   );
@@ -27,7 +22,7 @@ const styles = StyleSheet.create({
     width: deviceWidth,
   },
   overlay: {
-    backgroundColor: 'rgba(33,0,68,0.6)',
+    backgroundColor: Colors.third,
   },
   header: {
     backgroundColor: 'transparent',

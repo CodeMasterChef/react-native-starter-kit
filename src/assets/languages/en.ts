@@ -150,7 +150,7 @@ export const en = {
   skip: 'Skip',
   reason: 'Reason',
   vnpay_not_support_now: 'VNPAY is currently unable to process your transaction',
-  development_by_loya_world: 'Developed by Loya World',
+  development_by_kids_team: 'Developed by Kids Team',
   you_are_not_member: 'Your are not a member?',
   register_now: 'Register now',
   link_wallet: 'Link wallet',
