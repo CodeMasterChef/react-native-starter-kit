@@ -1,0 +1,115 @@
+{
+  "project_info": {
+    "project_number": "29279024762",
+    "firebase_url": "https://loyal-one.firebaseio.com",
+    "project_id": "loyal-one",
+    "storage_bucket": "loyal-one.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:29279024762:android:a6a311eabefd739e3f6dc3",
+        "android_client_info": {
+          "package_name": "com.loyaloneusermobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "29279024762-se3jlku6a5h3skvjfp43893jt8a688uu.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.loyaloneusermobile",
+            "certificate_hash": "e473efabbb6b3ac5080db52187cf82b5145647d7"
+          }
+        },
+        {
+          "client_id": "29279024762-oi4vji5t4lutim0m8kakh79b79ucslf2.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.loyaloneusermobile",
+            "certificate_hash": "8986ea0a6719f8d711f88940b752be2e5e564988"
+          }
+        },
+        {
+          "client_id": "29279024762-gcqcos8dj46f4ia2maht1pd38tiodqjq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBiM4trhq1eAHfKtBH7_2JVgnB9rz29y_k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "29279024762-gcqcos8dj46f4ia2maht1pd38tiodqjq.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "29279024762-9nagav6c6vsa7io29e9sh5cp4o9j54la.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "loyal.one.user.mobile"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:29279024762:android:b411461472a36c823f6dc3",
+        "android_client_info": {
+          "package_name": "loyal.one.user.mobile"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "29279024762-ercqkuo58r5hdvkodbulsndbcebptllp.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "loyal.one.user.mobile",
+            "certificate_hash": "e473efabbb6b3ac5080db52187cf82b5145647d7"
+          }
+        },
+        {
+          "client_id": "29279024762-t31i9jnvbebdebdd1ap2mgc6k11o4l64.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "loyal.one.user.mobile",
+            "certificate_hash": "8986ea0a6719f8d711f88940b752be2e5e564988"
+          }
+        },
+        {
+          "client_id": "29279024762-gcqcos8dj46f4ia2maht1pd38tiodqjq.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBiM4trhq1eAHfKtBH7_2JVgnB9rz29y_k"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "29279024762-gcqcos8dj46f4ia2maht1pd38tiodqjq.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "29279024762-9nagav6c6vsa7io29e9sh5cp4o9j54la.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "loyal.one.user.mobile"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
